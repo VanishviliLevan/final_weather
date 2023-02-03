@@ -15,6 +15,7 @@ class WelcomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         Handler().postDelayed({
         findNavController().navigate(R.id.action_welcomeFragment_to_mainFragment)
         }, 3000)

@@ -1,38 +1,54 @@
 package com.example.final_weather.home
 
+import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.example.final_weather.R
 import com.example.final_weather.api.RetrofitClient
+import com.example.final_weather.dialog.CustomDialogFragment
 import com.example.final_weather.models.WeatherResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class HomeFragment : Fragment() {
 
+class HomeFragment(): Fragment() {
+    private lateinit var txt:TextView
+    private lateinit var btn: Button
+    var city = "tbilisi"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val txt = view.findViewById<TextView>(R.id.textView2)
+
+
+
+        txt = view.findViewById(R.id.textView2)
+        btn = view.findViewById(R.id.button)
+
+
+
         val k:String = "355cbfa67d7e4fac866230344230102"
-        RetrofitClient.instance.getWeather("355cbfa67d7e4fac866230344230102","London").enqueue(object : Callback<WeatherResponse>{
+        RetrofitClient.instance.getWeather(k,city).enqueue(object : Callback<WeatherResponse>{
             override fun onResponse(
                 call: Call<WeatherResponse>,
                 response: Response<WeatherResponse>
@@ -40,7 +56,8 @@ class HomeFragment : Fragment() {
                 val temp = response.body()?.current
 
                 if (temp != null){
-                    txt.text = temp.currentC.toString()
+                    val numb = temp.currentC.toInt()
+                    txt.text = numb.toString()
 
 
 
@@ -52,6 +69,22 @@ class HomeFragment : Fragment() {
             }
 
         })
+
+        btn.setOnClickListener {
+
+
+            val exampleDialog = CustomDialogFragment()
+            exampleDialog.show(childFragmentManager, "example_dialog")
+
+
+
+
+
+
+
+            }
+
+
 
     }
 
