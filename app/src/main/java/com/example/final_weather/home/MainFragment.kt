@@ -12,6 +12,7 @@ import com.example.final_weather.R
 
 class MainFragment : Fragment() {
 
+    private lateinit var cityArg:String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,8 +21,14 @@ class MainFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_main, container, false)
         val viewpager = view.findViewById<ViewPager2>(R.id.viewPager)
 
+        if (arguments?.getString("amount") != null){
+            cityArg = arguments?.getString("amount").toString()
+        } else{
+            cityArg = "tbilisi"
+        }
+
         val fragmentList = arrayListOf<Fragment>(
-            HomeFragment(),
+            HomeFragment(cityArg),
             FormFragment()
 
         )

@@ -9,9 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.final_weather.R
 
@@ -42,7 +39,7 @@ class CustomDialogFragment:DialogFragment() {
         search.setOnClickListener {
 
             val bundle = bundleOf("amount" to cityName.text.toString())
-            findNavController().navigate(R.id.homeFragment, bundle)
+            findNavController().navigate(R.id.mainFragment, bundle)
 
             dismiss()
 
