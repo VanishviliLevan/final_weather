@@ -13,6 +13,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import com.example.final_weather.R
 import com.example.final_weather.api.RetrofitClient
 import com.example.final_weather.dialog.CustomDialogFragment
@@ -21,7 +23,7 @@ import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+import java.util.concurrent.TimeUnit
 
 
 class HomeFragment(private val cityName:String): Fragment() {
@@ -54,7 +56,6 @@ class HomeFragment(private val cityName:String): Fragment() {
         temperature = view.findViewById(R.id.temperature)
         icon = view.findViewById(R.id.icon)
         btn = view.findViewById(R.id.button)
-
 
 
         val k:String = "355cbfa67d7e4fac866230344230102"

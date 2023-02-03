@@ -1,14 +1,20 @@
 package com.example.final_weather
 
 import android.content.BroadcastReceiver
-import android.content.Intent
+import android.content.Context
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
+import com.example.final_weather.home.MyWorker
 import com.example.final_weather.home.NetworkChangeReceiver
-import java.lang.IllegalArgumentException
+import java.security.AccessControlContext
+import java.security.AccessController.getContext
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     var broadcastReceiver: BroadcastReceiver? = null
@@ -20,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         registerNetworkBroadcastReciver()
 
         supportActionBar?.hide()
+
 
     }
     fun registerNetworkBroadcastReciver() {
