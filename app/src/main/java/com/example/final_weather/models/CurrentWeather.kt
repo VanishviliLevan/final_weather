@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class CurrentWeather(
     @SerializedName("temp_c")
-    val currentC:Float
+    val temp:Float,
+    val condition:ConditionWeather
 
 )

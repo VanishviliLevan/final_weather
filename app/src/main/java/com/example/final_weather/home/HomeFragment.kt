@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,7 @@ import com.example.final_weather.R
 import com.example.final_weather.api.RetrofitClient
 import com.example.final_weather.dialog.CustomDialogFragment
 import com.example.final_weather.models.WeatherResponse
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +25,12 @@ import retrofit2.Response
 
 
 class HomeFragment(private val cityName:String): Fragment() {
-    private lateinit var txt:TextView
+    private lateinit var temperature:TextView
+    private lateinit var country:TextView
+    private lateinit var region:TextView
+    private lateinit var condition:TextView
+    private lateinit var city:TextView
+    private lateinit var icon:ImageView
     private lateinit var btn: Button
 
     override fun onCreateView(
@@ -40,7 +47,12 @@ class HomeFragment(private val cityName:String): Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        txt = view.findViewById(R.id.textView5)
+        country = view.findViewById(R.id.countryName)
+        region = view.findViewById(R.id.regionName)
+        condition = view.findViewById(R.id.condition)
+        city = view.findViewById(R.id.cityName)
+        temperature = view.findViewById(R.id.temperature)
+        icon = view.findViewById(R.id.icon)
         btn = view.findViewById(R.id.button)
 
 
@@ -51,16 +63,23 @@ class HomeFragment(private val cityName:String): Fragment() {
                 call: Call<WeatherResponse>,
                 response: Response<WeatherResponse>
             ) {
-                val temp = response.body()?.current
+                val data = response.body()
 
                 Log.e("CityName",cityName)
                 if(response.code() == 400){
                     Toast.makeText(context,"Location Name is Incorrect",Toast.LENGTH_LONG).show()
                 }
                 else {
-                if (temp != null){
-                    val numb = temp.currentC.toInt()
-                    txt.text = numb.toString()
+                if (data != null){
+                    val numb = data.current.temp.toInt()
+                    temperature.text = numb.toString()
+                    condition.text = data.current.condition.text
+                    region.text = data.location.region
+                    country.text = data.location.country
+                    city.text = data.location.name
+
+                    Picasso.get().load("https:"+data.current.condition.icon).into(icon)
+
                 }
 
 
