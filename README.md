@@ -19,7 +19,7 @@
     <br> Make Notes , update , delete , edit them </h3>
   
   
-  <br>
+
   
   <h2> How to run the app </h2>
  <h4>- Clone the project using $ git clone git@g[ithub.com:VanishviliLevan/final_weather.git <br>
@@ -27,14 +27,13 @@
  - Run the application on AVD (Android 7.1+) <br> </h4>
   
   
-    <br>
-  
+
   <h2> Features </h2>
  <h4>- Manage yoy Notes <br>
  - Get information about any city's Wheather<br>
  </h4>
   
-      <br>
+  
   
   <h2> Permissions </h2>
  <h4>- Permission to send a notification<br>
