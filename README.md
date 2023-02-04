@@ -19,8 +19,8 @@
   <h3> WheatherNote gets you opportunity to get Information about any city, country's wheaather 
     <br> Make Notes , update , delete , edit them </h3>
   
+ 
   
-
   
   <h2> How to run the app </h2>
  <h4>- Clone the project using $ git clone git@g[ithub.com:VanishviliLevan/final_weather.git <br>
