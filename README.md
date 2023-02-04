@@ -29,10 +29,10 @@
   
   <h3>How to run the app <br></h3>
   
-  <h5> Click Search Button </h5>br
+  <h5> Click Search Button </h5><br>
   <img src="https://github.com/VanishviliLevan/final_weather/blob/master/app2.png" alt="Alt text" width="250px" title="Optional title"><br>
   <img src="https://github.com/VanishviliLevan/final_weather/blob/master/weather.jpeg" alt="Alt text" width="250px" title="Optional title"><br>
-   <h5> Click Add Button </h5>br
+   <h5> Click Add Button </h5><br>
   <img src="https://github.com/VanishviliLevan/final_weather/blob/master/note2.jpeg" alt="Alt text" width="250px" title="Optional title"><br>
   <img src="https://github.com/VanishviliLevan/final_weather/blob/master/note1.jpeg" alt="Alt text" width="250px" title="Optional title"><br>
 
