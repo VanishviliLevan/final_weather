@@ -10,7 +10,7 @@
 
 
 
-<img src="https://github.com/VanishviliLevan/final_weather/blob/master/app2.png" alt="Alt text" title="Optional title">
+<img src="https://github.com/VanishviliLevan/final_weather/blob/master/app2.png" alt="Alt text" width="250px" title="Optional title">
 
 
 
